@@ -252,7 +252,7 @@ view: forex_real {
 
   dimension: GBP_USD {
     label: "GBP/USD"
-    description: "1 GBP = X USD"
+    description: "1 Great British Pound = X US dollars"
     type: number
     sql: ${usd}*(1/${gbp}) ;;
     value_format_name: decimal_4
@@ -261,7 +261,7 @@ view: forex_real {
 
   dimension: NZD_USD {
     label: "NZD/USD"
-    description: "1 NZD = X USD"
+    description: "1 New Zealand Dollar = X US dollars"
     type: number
     sql: 1/(${nzd}*(1/${usd})) ;;
     value_format_name: decimal_4
@@ -270,7 +270,7 @@ view: forex_real {
 
   dimension: USD_CAD {
     label: "USD/CAD"
-    description: "1 USD = X CAD"
+    description: "1 US dollar = X Canadian dollars"
     type: number
     sql: ${cad} *(1/${usd});;
     value_format_name: decimal_4
@@ -279,7 +279,7 @@ view: forex_real {
 
   dimension: USD_CHF {
     label: "USD/CHF"
-    description: "1 USD = X CHF"
+    description: "1 US dollar = X Swiss Francs"
     type: number
     sql: ${chf} *(1/${usd});;
     value_format_name: decimal_4
@@ -288,7 +288,7 @@ view: forex_real {
 
   dimension: USD_JPY {
     label: "USD/JPY"
-    description: "1 USD = X JPY"
+    description: "1 US dollar = X Japanese Yen"
     type: number
     sql: ${jpy} *(1/${usd});;
     value_format_name: decimal_4
