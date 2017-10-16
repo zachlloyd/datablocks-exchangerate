@@ -176,6 +176,125 @@ view: forex_real {
     sql: ${TABLE}.ZAR ;;
   }
 
+  #######Common Pairs######
+
+  dimension: AUD_USD {
+    label: "AUD/USD"
+    description: "1 Australian Dollar = X US Dollars"
+    type: number
+    sql: 1/(${aud}*(1/${usd})) ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: CHF_JPY {
+    label: "CHF/JPY"
+    description: "1 Swiss Franc = X Japanese Yen"
+    type: number
+    sql: 1/(${chf}*(1/${jpy})) ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: EUR_CHF {
+    label: "EUR/CHF"
+    description: "1 Euro = X Swiss Francs"
+    type: number
+    sql: ${chf} ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: EUR_GBP {
+    label: "EUR/GBP"
+    description: "1 Euro = X Great British Pounds"
+    type: number
+    sql: ${gbp};;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: EUR_JPY {
+    label: "EUR/JPY"
+    description: "1 Euro = X Japanese Yen"
+    type: number
+    sql: ${jpy} ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: EUR_USD {
+    label: "EUR/USD"
+    description: "1 Euro = X US Dollars"
+    type: number
+    sql: ${usd} ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: GBP_CHF {
+    label: "GBP/CHF"
+    description: "1 Great British Pound = X Swiss Francs"
+    type: number
+    sql: ${chf}*(1/${gbp}) ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: GBP_JPY {
+    label: "GBP/JPY"
+    description: "1 Great British Pound = X Japanese Yen"
+    type: number
+    sql: ${jpy}*(1/${gbp}) ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: GBP_USD {
+    label: "GBP/USD"
+    description: "1 GBP = X USD"
+    type: number
+    sql: ${usd}*(1/${gbp}) ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: NZD_USD {
+    label: "NZD/USD"
+    description: "1 NZD = X USD"
+    type: number
+    sql: 1/(${nzd}*(1/${usd})) ;;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: USD_CAD {
+    label: "USD/CAD"
+    description: "1 USD = X CAD"
+    type: number
+    sql: ${cad} *(1/${usd});;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: USD_CHF {
+    label: "USD/CHF"
+    description: "1 USD = X CHF"
+    type: number
+    sql: ${chf} *(1/${usd});;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
+  dimension: USD_JPY {
+    label: "USD/JPY"
+    description: "1 USD = X JPY"
+    type: number
+    sql: ${jpy} *(1/${usd});;
+    value_format_name: decimal_4
+    group_label: "Common Pairs"
+  }
+
   measure: count {
     type: count
     drill_fields: []
