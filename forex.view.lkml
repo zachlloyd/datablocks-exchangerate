@@ -1,5 +1,5 @@
 view: forex {
-  sql_table_name: `looker-datablocks.exchangerate.forex` ;;
+  sql_table_name: `looker-datablocks.exchangerate.forex*` ;;
 
  #######Common Pairs######
 
