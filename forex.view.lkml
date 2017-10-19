@@ -6,9 +6,9 @@ view: forex {
   dimension: AUD_USD {
     label: "AUD/USD"
     description: "1 Australian Dollar = X US Dollars"
+    group_label: "Common Pairs"
     type: number
     sql: ${TABLE}.AUD_USD ;;
-    group_label: "Common Pairs"
   }
 
   dimension: CHF_JPY {

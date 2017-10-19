@@ -37,97 +37,101 @@ view: forex_historical_real {
     datagroup_trigger: default
   }
 
-  measure: count {
-    type: count
-    drill_fields: [detail*]
-  }
-
   dimension: forex_exchange_date {
     type: date
     sql: ${TABLE}.forex_exchange_date ;;
   }
 
   dimension: aud_usd {
-    type: string
+    label: "AUD/USD"
+    description: "1 Australian Dollar = X US Dollars"
+    value_format_name: decimal_4
+    type:  number
     sql: ${TABLE}.AUD_USD ;;
   }
 
   dimension: chf_jpy {
-    type: string
+    label: "CHF/JPY"
+    description: "1 Swiss Franc = X Japanese Yen"
+    type:  number
     sql: ${TABLE}.CHF_JPY ;;
   }
 
   dimension: eur_chf {
-    type: string
+    label: "EUR/CHF"
+    description: "1 Euro = X Swiss Francs"
+    type:  number
     sql: ${TABLE}.EUR_CHF ;;
   }
 
   dimension: eur_gbp {
-    type: string
+    label: "EUR/GBP"
+    description: "1 Euro = X Great British Pounds"
+    type:  number
     sql: ${TABLE}.EUR_GBP ;;
   }
 
   dimension: eur_jpy {
-    type: string
+    label: "EUR/JPY"
+    description: "1 Euro = X Japanese Yen"
+    type:  number
     sql: ${TABLE}.EUR_JPY ;;
   }
 
   dimension: eur_usd {
-    type: string
+    label: "EUR/USD"
+    description: "1 Euro = X US Dollars"
+    type:  number
     sql: ${TABLE}.EUR_USD ;;
   }
 
   dimension: gbp_chf {
-    type: string
+    label: "GBP/CHF"
+    description: "1 Great British Pound = X Swiss Francs"
+    type:  number
     sql: ${TABLE}.GBP_CHF ;;
   }
 
   dimension: gbp_jpy {
-    type: string
+    label: "GBP/JPY"
+    description: "1 Great British Pound = X Japanese Yen"
+    type:  number
     sql: ${TABLE}.GBP_JPY ;;
   }
 
   dimension: gbp_usd {
-    type: string
+    label: "GBP/USD"
+    description: "1 Great British Pound = X US dollars"
+    type:  number
     sql: ${TABLE}.GBP_USD ;;
   }
 
   dimension: nzd_usd {
-    type: string
+    label: "NZD/USD"
+    description: "1 New Zealand Dollar = X US dollars"
+    type:  number
     sql: ${TABLE}.NZD_USD ;;
   }
 
   dimension: usd_cad {
-    type: string
+    label: "USD/CAD"
+    description: "1 US dollar = X Canadian dollars"
+    type:  number
     sql: ${TABLE}.USD_CAD ;;
   }
 
   dimension: usd_chf {
-    type: string
+    label: "USD/CHF"
+    description: "1 US dollar = X Swiss Francs"
+    type:  number
     sql: ${TABLE}.USD_CHF ;;
   }
 
   dimension: usd_jpy {
-    type: string
+    label: "USD/JPY"
+    description: "1 US dollar = X Japanese Yen"
+    type:  number
     sql: ${TABLE}.USD_JPY ;;
   }
 
-  set: detail {
-    fields: [
-      forex_exchange_date,
-      aud_usd,
-      chf_jpy,
-      eur_chf,
-      eur_gbp,
-      eur_jpy,
-      eur_usd,
-      gbp_chf,
-      gbp_jpy,
-      gbp_usd,
-      nzd_usd,
-      usd_cad,
-      usd_chf,
-      usd_jpy
-    ]
-  }
 }
