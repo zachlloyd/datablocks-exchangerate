@@ -19,10 +19,14 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 # }
 
 datagroup: default {
-  max_cache_age: "24 hours"
-  sql_trigger: select current_date() ;;
+  max_cache_age: "48 hours"
+  sql_trigger: select * from exchangerate.forex_real ;;
 }
 
-explore: forex {}
+# explore: forex {}
+#
+# explore: forex_real {}
 
-explore: forex_real_dt {}
+explore: forex_historical_real {
+  label: "Exchange Rates"
+}
