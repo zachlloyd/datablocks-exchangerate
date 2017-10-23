@@ -17,3 +17,13 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
 # }
+
+datagroup: default {
+  max_cache_age: "48 hours"
+  sql_trigger: select * from exchangerate.forex_real ;;
+}
+
+explore: forex_historical_real {
+  persist_with: default
+  label: "Exchange Rates"
+}
