@@ -37,7 +37,7 @@ view: forex_historical_real {
     datagroup_trigger: default
   }
 
-  dimension_group: forex_exchange_date {
+  dimension_group: forex_exchange {
     type: time
     timeframes: [date, week, month, year]
     sql: ${TABLE}.forex_exchange_date ;;
