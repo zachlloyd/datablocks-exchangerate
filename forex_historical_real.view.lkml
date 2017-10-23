@@ -1,7 +1,7 @@
 view: forex_historical_real {
   derived_table: {
     sql: SELECT
-        forex.exchange_date AS forex_exchange_date,
+        cast(forex.exchange_date as timestamp) AS forex_exchange_date,
         forex.AUD_USD  AS AUD_USD,
         forex.CHF_JPY  AS CHF_JPY,
         forex.EUR_CHF  AS EUR_CHF,
@@ -18,7 +18,7 @@ view: forex_historical_real {
       FROM `looker-datablocks.exchangerate.forex`  AS forex
       Union All
       SELECT
-        forex_real.exchange_date AS exchange_date,
+        cast(forex_real.exchange_date as timestamp) AS forex_exchange_date,
         1/(forex_real.AUD*(1/forex_real.USD))  AS AUD_USD,
         1/(forex_real.CHF*(1/forex_real.JPY))  AS CHF_JPY ,
         forex_real.CHF  AS EUR_CHF,
@@ -37,8 +37,9 @@ view: forex_historical_real {
     datagroup_trigger: default
   }
 
-  dimension: forex_exchange_date {
-    type: date
+  dimension_group: forex_exchange_date {
+    type: time
+    timeframes: [date, week, month, year]
     sql: ${TABLE}.forex_exchange_date ;;
   }
 
