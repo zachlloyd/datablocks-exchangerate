@@ -1,4 +1,4 @@
-view: forex {
+view: sf_forex {
   sql_table_name: exchangerate.forex ;;
 
   dimension: aud_usd {

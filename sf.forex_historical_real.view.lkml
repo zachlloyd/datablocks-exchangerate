@@ -1,4 +1,4 @@
-view: forex_historical_real {
+view: sf_forex_historical_real {
   derived_table: {
     sql: SELECT
         cast(forex.exchange_date as timestamp) AS forex_exchange_date,
@@ -15,8 +15,8 @@ view: forex_historical_real {
         forex.USD_CAD  AS USD_CAD,
         forex.USD_CHF  AS USD_CHF,
         forex.USD_JPY  AS USD_JPY
-      FROM `looker-datablocks.exchangerate.forex`  AS forex
-      Union All
+      FROM exchangerate.forex  AS forex
+      UNION ALL
       SELECT
         cast(forex_real.exchange_date as timestamp) AS forex_exchange_date,
         1/(forex_real.AUD*(1/forex_real.USD))  AS AUD_USD,

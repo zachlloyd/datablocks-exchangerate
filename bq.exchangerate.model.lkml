@@ -23,7 +23,7 @@ datagroup: default {
   sql_trigger: select count(*) from exchangerate.forex_real ;;
 }
 
-explore: forex_historical_real {
+explore: bq_forex_historical_real {
   persist_with: default
   label: "Exchange Rates"
 }
