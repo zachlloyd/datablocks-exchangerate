@@ -125,7 +125,7 @@ view: bq_forex {
   measure: max {
     type: max
     sql: ${USD_CHF} ;;
-  }
+}
 
   measure: count {
     type: count
