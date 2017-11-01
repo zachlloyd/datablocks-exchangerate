@@ -33,7 +33,7 @@ view: bq_forex_historical_real {
         forex_real.CAD *(1/forex_real.USD) AS USD_CAD,
         forex_real.CHF *(1/forex_real.USD) AS USD_CHF,
         forex_real.JPY *(1/forex_real.USD) AS USD_JPY
-      FROM exchangerate.forex_real  AS forex_real
+      FROM `looker-datablocks.exchangerate.forex_real`  AS forex_real
       Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
        ;;
     datagroup_trigger: default
