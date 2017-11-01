@@ -27,6 +27,7 @@ datagroup: default {
 #
 # explore: forex_real {}
 
-explore: forex_historical_real {
+explore: bq_forex_historical_real {
   label: "Exchange Rates"
+  persist_with: default
 }

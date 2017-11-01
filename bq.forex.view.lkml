@@ -1,4 +1,4 @@
-view: forex {
+view: bq_forex {
   sql_table_name: `looker-datablocks.exchangerate.forex` ;;
 
  #######Common Pairs######
