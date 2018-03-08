@@ -1,4 +1,4 @@
-include: "sf.*.view.lkml"
+include: "snowflake.*.view.lkml"
 
 datagroup: default {
   max_cache_age: "48 hours"
