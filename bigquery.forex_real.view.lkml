@@ -1,5 +1,5 @@
 view: bq_forex_real {
-  sql_table_name: `looker-datablocks.exchangerate.forex_real` ;;
+  sql_table_name: `looker-datablocks.exchangerate.forex_real_full` ;;
 
   dimension: aud {
     type: number
