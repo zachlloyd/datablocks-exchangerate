@@ -123,7 +123,7 @@ from
     on forex.forex_exchange_date = calendar_day.day) as x
     order by day desc
        ;;
-    datagroup_trigger: default
+    # datagroup_trigger: default
   }
 
   dimension_group: forex_exchange {
