@@ -1,3 +1,3 @@
-connection: "bq-looker-datablocks"
+connection: "time-data-bigquery"
 
 include: "bigquery.explore"
