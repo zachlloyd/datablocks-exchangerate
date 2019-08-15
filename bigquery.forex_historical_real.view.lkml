@@ -101,12 +101,12 @@ from
         forex.GBP_JPY  AS GBP_JPY,
         forex.GBP_USD  AS GBP_USD,
         forex.NZD_USD  AS NZD_USD,
-        forex.THB_USD  AS THB_USD,
+        null  AS THB_USD,
         forex.USD_CAD  AS USD_CAD,
         forex.USD_CHF  AS USD_CHF,
         forex.USD_JPY  AS USD_JPY
       FROM `looker-datablocks.exchangerate.forex`  AS forex
-      Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
+      Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
       Union All
       SELECT
         cast(forex_real.exchange_date as timestamp) AS forex_exchange_date,
@@ -125,7 +125,7 @@ from
         forex_real.CHF *(1/forex_real.USD) AS USD_CHF,
         forex_real.JPY *(1/forex_real.USD) AS USD_JPY
       FROM `looker-datablocks.exchangerate.forex_real_full`  AS forex_real
-      Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14
+      Group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
 ) as forex
     on forex.forex_exchange_date = calendar_day.day) as x
     order by day desc
