@@ -52,7 +52,7 @@ view: bq_forex_historical_real {
       Else lag(x.NZD_USD, 1) over (order by x.day) End)
     Else x.NZD_USD End) as NZD_USD
 , (case when x.THB_USD is null then
-    (case when lag(x.NTHB_USD, 1) over (order by x.day) is null then
+    (case when lag(x.THB_USD, 1) over (order by x.day) is null then
       lag(x.THB_USD, 2) over (order by x.day)
       Else lag(x.THB_USD, 1) over (order by x.day) End)
     Else x.THB_USD End) as THB_USD
