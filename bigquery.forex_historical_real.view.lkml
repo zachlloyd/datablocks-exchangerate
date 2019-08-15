@@ -51,6 +51,11 @@ view: bq_forex_historical_real {
       lag(x.NZD_USD, 2) over (order by x.day)
       Else lag(x.NZD_USD, 1) over (order by x.day) End)
     Else x.NZD_USD End) as NZD_USD
+, (case when x.THB_USD is null then
+    (case when lag(x.NTHB_USD, 1) over (order by x.day) is null then
+      lag(x.THB_USD, 2) over (order by x.day)
+      Else lag(x.THB_USD, 1) over (order by x.day) End)
+    Else x.THB_USD End) as THB_USD
 , (case when x.USD_CAD is null then
     (case when lag(x.USD_CAD, 1) over (order by x.day) is null then
       lag(x.USD_CAD, 2) over (order by x.day)
@@ -96,6 +101,7 @@ from
         forex.GBP_JPY  AS GBP_JPY,
         forex.GBP_USD  AS GBP_USD,
         forex.NZD_USD  AS NZD_USD,
+        forex.THB_USD  AS THB_USD,
         forex.USD_CAD  AS USD_CAD,
         forex.USD_CHF  AS USD_CHF,
         forex.USD_JPY  AS USD_JPY
@@ -114,6 +120,7 @@ from
         forex_real.JPY*(1/forex_real.GBP)  AS GBP_JPY,
         forex_real.USD*(1/forex_real.GBP)  AS GBP_USD,
         1/(forex_real.NZD*(1/forex_real.USD))  AS NZD_USD,
+        1/(forex_real.THB*(1/forex_real.USD))  AS THB_USD,
         forex_real.CAD *(1/forex_real.USD) AS USD_CAD,
         forex_real.CHF *(1/forex_real.USD) AS USD_CHF,
         forex_real.JPY *(1/forex_real.USD) AS USD_JPY
@@ -214,6 +221,14 @@ from
     description: "1 New Zealand Dollar = X US dollars"
     type:  number
     sql: ${TABLE}.NZD_USD ;;
+    hidden: yes
+  }
+
+  dimension: thb_usd {
+    label: "THB/USD"
+    description: "1 Thai Bhat = X US dollars"
+    type:  number
+    sql: ${TABLE}.THB_USD ;;
     hidden: yes
   }
 
@@ -321,6 +336,14 @@ from
     value_format_name: decimal_4
     type:  max
     sql: ${nzd_usd};;
+  }
+
+  measure: thbusd {
+    label: "THB/USD"
+    description: "1 Thai Bhat = X US dollars"
+    value_format_name: decimal_4
+    type:  max
+    sql: ${thb_usd};;
   }
 
   measure: usdcad {
